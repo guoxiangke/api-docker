@@ -23,7 +23,7 @@ docker-manager:
       - /var/run/docker.sock:/var/run/docker.sock
     restart: always
     ports:
-        - "9001"
+        - "9001:9000"
 
 api.staging.yongbuzhixi.com:
     image: drupal
@@ -34,7 +34,7 @@ api.staging.yongbuzhixi.com:
     links:
         - "db-mariadb"
     ports:
-        - "8080"
+        - "8080:80"
 
 #################
 db-mariadb:
