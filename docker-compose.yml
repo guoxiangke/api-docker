@@ -11,13 +11,13 @@ nginx:
     #     - storage-drupal
     links:
         - "db-mariadb:mariadb"
-        - "docker-manager"
+        - "docker.localhost"
     ports:
         - "80:80"
 #####docker-manager!!
 docker-manager:
     image: portainer/portainer
-    hostname: docker-manager
+    hostname: docker.localhost
     # volumes:
     #     - XXXX/var/run/docker.sock:/var/run/docker.sock 
     restart: always
