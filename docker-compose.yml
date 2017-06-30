@@ -25,6 +25,16 @@ docker-manager:
     # ports:
     #     - "9001:9000"
 
+api-staging:
+    image: drupal
+    hostname: api-staging
+    restart: always
+    # volumes_from:
+    #     - storage-drupal
+    links:
+        - "db-mariadb"
+    ports:
+        - "8080:8080"
 
 #################
 db-mariadb:
