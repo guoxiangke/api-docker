@@ -23,7 +23,7 @@ docker-manager:
       - /var/run/docker.sock:/var/run/docker.sock
     restart: always
     ports:
-        - "9000"
+        - "9001"
 
 api.staging.yongbuzhixi.com:
     image: drupal
