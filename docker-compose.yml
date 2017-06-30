@@ -10,8 +10,9 @@ nginx:
     # volumes_from:
     #     - storage-drupal
     links:
-        - "db-mariadb:mariadb"
         - "docker-manager"
+        - "db-mariadb"
+        - "api-staging"
     ports:
         - "80:80"
 #####docker-manager!!
