@@ -17,7 +17,7 @@ nginx:
 #####docker-manager!!
 docker-manager:
     image: portainer/portainer
-    hostname: portainer.localhost
+    hostname: docker-manager
     # volumes:
     #     - XXXX/var/run/docker.sock:/var/run/docker.sock 
     restart: always
