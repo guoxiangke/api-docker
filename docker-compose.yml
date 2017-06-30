@@ -13,6 +13,17 @@ nginx:
         - "db-mariadb:mariadb"
     ports:
         - "80:80"
+#####docker-manager!!
+docker-manager:
+    image: portainer/portainer
+    hostname: portainer-localhost
+    # volumes:
+    #     - XXXX/var/run/docker.sock:/var/run/docker.sock 
+    restart: always
+    ports:
+        - "9001:9001"
+
+
 #################
 db-mariadb:
     image: mariadb
