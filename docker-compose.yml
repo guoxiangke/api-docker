@@ -23,7 +23,7 @@ docker-manager:
       - /var/run/docker.sock:/var/run/docker.sock
     restart: always
     # ports:
-    #     - "9001:9000"
+    #     - "9000"
 
 api-staging:
     image: drupal
@@ -33,8 +33,8 @@ api-staging:
     #     - storage-drupal
     links:
         - "db-mariadb"
-    ports:
-        - "8080:80"
+    # ports:
+    #     - "8080:80"
 
 #################
 db-mariadb:
