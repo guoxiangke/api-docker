@@ -1,0 +1,27 @@
+#FROM drupal:8-fpm
+#FROM 
+##
+nginx:
+    image: nginx
+    hostname: nginx-localhost
+    restart: always
+    volumes:
+        - ./nginx/conf.d:/etc/nginx/conf.d
+    # volumes_from:
+    #     - storage-drupal
+    links:
+        - "db-mariadb:mariadb"
+    ports:
+        - "80:80"
+#################
+db-mariadb:
+    image: mariadb
+    hostname: mariadb-localhost
+    restart: always
+    # volumes_from:
+    #     - storage-mysql
+    environment:
+        - MYSQL_USER=drupal
+        - MYSQL_PASSWORD=drupal
+        - MYSQL_DATABASE=drupal
+        - MYSQL_ROOT_PASSWORD=drupal
