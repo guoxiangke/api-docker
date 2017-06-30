@@ -18,11 +18,12 @@ nginx:
 docker-manager:
     image: portainer/portainer
     hostname: docker-manager
+    restart: always
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     restart: always
-    ports:
-        - "9001:9000"
+    # ports:
+    #     - "9001:9000"
 
 
 #################
