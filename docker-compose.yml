@@ -1,6 +1,3 @@
-#FROM drupal:8-fpm
-#FROM 
-##
 nginx:
     image: nginx
     hostname: nginx.localhost
@@ -29,8 +26,8 @@ api.staging.yongbuzhixi.com:
     image: drupal
     # hostname: api.staging.yongbuzhixi.com
     restart: always
-    # volumes_from:
-    #     - storage-drupal
+    volumes_from:
+        - storage-drupal
     links:
         - "db-mariadb"
     # ports:
@@ -41,10 +38,27 @@ db-mariadb:
     image: mariadb
     hostname: mariadb-localhost
     restart: always
-    # volumes_from:
-    #     - storage-mysql
+    volumes_from:
+        - storage-db
     environment:
         - MYSQL_USER=drupal
         - MYSQL_PASSWORD=drupal
         - MYSQL_DATABASE=drupal
         - MYSQL_ROOT_PASSWORD=drupal
+        
+storage-db:
+    image: mariadb
+    # create_only: true
+    command: []
+    volumes:
+        - /var/lib/mysql
+
+storage-drupal:
+    image: drupal
+    # create_only: true
+    command: []
+    volumes:
+        - /var/www/html/profiles
+        - /var/www/html/modules
+        - /var/www/html/themes
+        - /var/www/html/sites/default
