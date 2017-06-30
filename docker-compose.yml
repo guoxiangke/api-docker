@@ -11,7 +11,7 @@ nginx:
     #     - storage-drupal
     links:
         - "docker-manager"
-        - "api-staging"
+        - "api.staging.yongbuzhixi.com"
     ports:
         - "80:80"
 #####docker-manager!!
@@ -25,9 +25,9 @@ docker-manager:
     # ports:
     #     - "9000"
 
-api-staging:
+api.staging.yongbuzhixi.com:
     image: drupal
-    hostname: api.staging.yongbuzhixi.com
+    # hostname: api.staging.yongbuzhixi.com
     restart: always
     # volumes_from:
     #     - storage-drupal
