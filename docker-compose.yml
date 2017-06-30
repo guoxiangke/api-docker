@@ -27,7 +27,7 @@ docker-manager:
 
 api-staging:
     image: drupal
-    hostname: api-staging
+    hostname: api.staging.yongbuzhixi.com
     restart: always
     # volumes_from:
     #     - storage-drupal
